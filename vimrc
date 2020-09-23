@@ -38,24 +38,20 @@ Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
-"Plug 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx'
 "Plug 'leafgarland/typescript-vim'
-"Plug 'peitalin/vim-jsx-typescript'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
 call plug#end()
 
 
-let g:gruvbox_contrast_dark = 'hard'
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-let g:gruvbox_invert_selection='0'
-
 colorscheme gruvbox
 set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_invert_selection='0'
+
 
 let loaded_matchparen = 1
 let mapleader = " "
