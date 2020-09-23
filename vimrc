@@ -70,10 +70,9 @@ map <C-/> :TagbarToggle<CR>
 
 nnoremap <leader>h :wincmd h<CR>
 let g:gitgutter_map_keys = 0
+set updatetime=100
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-
-
 
