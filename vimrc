@@ -69,6 +69,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
 "Plug 'ruanyl/vim-fixmyjs'
 
+Plug 'dense-analysis/ale'
+
 call plug#end()
 
 
@@ -97,6 +99,13 @@ lua require'nvim_lsp'.tsserver.setup{ on_attach=require'completion'.on_attach }
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 
+let g:ale_fixers = ['eslint']
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+
+
 map <C-\> :NERDTreeToggle<CR>
 "map <C-/> :TagbarToggle<CR>
 
@@ -112,5 +121,6 @@ nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string()<CR>
 nmap <C-_>   <Plug>NERDCommenterToggle
 vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
-"nmap <leader>a :tab split<CR>:Ack ""<Left>
+nmap <leader>a :tab split<CR>:Ack ""<Left>
+noremap <Leader>s :update<CR>
 
