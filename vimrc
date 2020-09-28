@@ -135,7 +135,7 @@ nmap <leader>gs :G<CR>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gc :GCheckout<CR>
-
+nmap <leader>gp :GPush<CR>
 "Save Action
 nmap <leader>wq :wq<CR>
 noremap <Leader>s :update<CR>
