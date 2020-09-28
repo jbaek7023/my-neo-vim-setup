@@ -91,6 +91,8 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
 let g:fzf_layout = { 'window': { 'window': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
 
@@ -138,6 +140,6 @@ nmap <leader>gc :GCheckout<CR>
 nmap <leader>gp :Gpush<CR>
 
 "Save Action
-nmap <leader>wq :wq<CR>
+nmap <leader>wo :wq<CR>
 noremap <Leader>s :update<CR>
 
