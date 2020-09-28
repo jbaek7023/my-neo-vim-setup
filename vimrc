@@ -134,10 +134,10 @@ nnoremap <C-]> :bprevious<CR>
 nnoremap <leader>w :bd<CR>
 
 "Git Fugitie
-nnoremap <leader>ga :Git add %:p<CR><CR>
+"jnnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
-"nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>gt :Gcommit -v -q %:p<CR>
+"nnoremap <leader>gc :Gcommit -v -q<CR>"
+"nnoremap <leader>gt :Gcommit -v -q %:p<CR> -m upd<CR>
 "nnoremap <leader>gd :Gdiff<CR>
 "nnoremap <leader>ge :Gedit<CR>
 "nnoremap <leader>gr :Gread<CR>
