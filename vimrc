@@ -138,6 +138,7 @@ nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
 nmap <leader>gc :GCheckout<CR>
 nmap <leader>gp :Gpush<CR>
+nnoremap <leader>go :<c-u>:Gwrite<bar>Gcommit -m upd<bar>Gpush<cr>
 
 "Save Action
 nmap <leader>wo :wq<CR>
