@@ -39,11 +39,12 @@ highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 
+"Basic
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar' "not working...
 Plug 'vim-airline/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
@@ -67,8 +68,7 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
-"Plug 'ruanyl/vim-fixmyjs'
-
+"auto-linting
 Plug 'dense-analysis/ale'
 
 call plug#end()
@@ -132,8 +132,8 @@ nnoremap <leader>w :bd<CR>
 
 "Git Fugitie
 nmap <leader>gs :G<CR>
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gu :diffget //2<CR>
+nmap <leader>gh :diffget //2<CR>
+nmap <leader>gl :diffget //3<CR>
 nmap <leader>gc :GCheckout<CR>
 nmap <leader>gp :Gpush<CR>
 
