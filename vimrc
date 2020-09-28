@@ -121,6 +121,22 @@ nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim
 nnoremap <leader>ps :lua require('telescope.builtin').grep_string()<CR>
 nmap <C-_>   <Plug>NERDCommenterToggle
 vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
+
 nmap <leader>a :tab split<CR>:Ack ""<Left>
+
+
+nnoremap <Leader><CR> :so ~/.vim/vimrc<CR>
+nnoremap <C-[> :bnext<CR>
+nnoremap <C-]> :bprevious<CR>
+nnoremap <leader>w :bd<CR>
+
+"Git Fugitie
+nmap <leader>gs :G<CR>
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
+nmap <leader>gc :GCheckout<CR>
+
+"Save Action
+nmap <leader>wq :wq<CR>
 noremap <Leader>s :update<CR>
 
