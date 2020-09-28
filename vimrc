@@ -2,7 +2,7 @@ syntax on
 
 set guicursor=
 set relativenumber
-set nohlsearch
+"set nohlsearch
 set hidden
 set noerrorbells
 set tabstop=2 softtabstop=2
@@ -72,6 +72,9 @@ Plug 'nvim-lua/telescope.nvim'
 Plug 'dense-analysis/ale'
 "vim game
 Plug 'ThePrimeagen/vim-be-good'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" automatically clear search highlights after you move your cursor
+Plug 'haya14busa/is.vim'
 
 call plug#end()
 
@@ -155,5 +158,11 @@ nnoremap <leader>go :<c-u>:Gwrite<bar>Gcommit -m upd<bar>Gpush<cr>
 "Save Action
 nmap <leader>wo :wq<CR>
 noremap <Leader>s :update<CR>
+
+"search and replace
+"nmap <leader>rr <Plug>(coc-rename)
+nnoremap <leader>fiw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <leader>r :%s///g<Left><Left>
+nnoremap <leader>rc :%s///gc<Left><Left><Left>
 
 imap jj <Esc>
