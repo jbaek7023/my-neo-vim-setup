@@ -126,7 +126,6 @@ vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
 
 nmap <leader>a :tab split<CR>:Ack ""<Left>
 
-
 nnoremap <Leader><CR> :so ~/.vim/vimrc<CR>
 nnoremap <C-[> :bnext<CR>
 nnoremap <C-]> :bprevious<CR>
