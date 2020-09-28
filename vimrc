@@ -70,6 +70,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
 "auto-linting
 Plug 'dense-analysis/ale'
+"vim game
+Plug 'ThePrimeagen/vim-be-good'
 
 call plug#end()
 
@@ -143,3 +145,4 @@ nnoremap <leader>go :<c-u>:Gwrite<bar>Gcommit -m upd<bar>Gpush<cr>
 nmap <leader>wo :wq<CR>
 noremap <Leader>s :update<CR>
 
+imap jj <Esc>
