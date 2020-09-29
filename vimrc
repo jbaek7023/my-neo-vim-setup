@@ -161,8 +161,11 @@ noremap <Leader>s :update<CR>
 
 "search and replace
 "nmap <leader>rr <Plug>(coc-rename)
-nnoremap <leader>fiw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+noremap <leader>fiw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 nnoremap <leader>r :%s///g<Left><Left>
 nnoremap <leader>rc :%s///gc<Left><Left><Left>
+
+"nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+"xnoremap <silent> s* "sy:let @/=@s<CR>cgn
 
 imap jj <Esc>
