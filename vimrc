@@ -23,6 +23,7 @@ set noshowmode
 set completeopt=menuone,noinsert,noselect
 set cursorline
 set cursorcolumn
+set splitright
 
 " Give more space for displaying messages.
 set cmdheight=2
@@ -145,7 +146,7 @@ nmap <leader>a :tab split<CR>:Ack ""<Left>
 nnoremap <Leader><CR> :so ~/.vim/vimrc<CR>
 nnoremap <C-[> :bprevious<CR>
 nnoremap <C-]> :bnext<CR>
-nnoremap <leader>q :bd<CR>
+nnoremap <leader>wc :q<CR>
 
 "Git Fugitie
 nnoremap <leader>gs :Gstatus<CR>
