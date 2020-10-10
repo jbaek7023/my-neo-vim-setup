@@ -74,6 +74,7 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
+Plug 'nvim-lua/diagnostic-nvim'
 "auto-linting
 Plug 'dense-analysis/ale'
 "vim game
@@ -81,6 +82,8 @@ Plug 'ThePrimeagen/vim-be-good'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " automatically clear search highlights after you move your cursor
 Plug 'haya14busa/is.vim'
+
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -98,13 +101,6 @@ let loaded_matchparen = 1
 let mapleader = " "
 
 let g:lsp_diagnostics_echo_cursor = 1
-
-"let g:indent_guides_enable_on_vim_startup = 1
-"let g:indent_guides_guide_size = 1
-"let g:indent_guides_start_level = 2
-"let g:indentLine_faster = 1
-"let g:indentLine_setConceal = 0
-"let g:indentLine_char_list = ['dd
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -152,17 +148,7 @@ nnoremap <C-]> :bnext<CR>
 nnoremap <leader>q :bd<CR>
 
 "Git Fugitie
-"jnnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
-"nnoremap <leader>gc :Gcommit -v -q<CR>"
-"nnoremap <leader>gt :Gcommit -v -q %:p<CR> -m upd<CR>
-"nnoremap <leader>gd :Gdiff<CR>
-"nnoremap <leader>ge :Gedit<CR>
-"nnoremap <leader>gr :Gread<CR>
-"nnoremap <leader>gw :Gwrite<CR><CR>
-"nnoremap <leader>gl :silent! Glog<CR>:bot copen<CR>
-"nnoremap <leader>gp :Ggrep<Space>
-"nnoremap <leader>gm :Gmove<Space>
 nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>gc :Git checkout<Space>
 nmap <leader>gh :diffget //2<CR>
@@ -175,7 +161,6 @@ nmap <leader>wo :wq<CR>
 noremap <Leader>s :update<CR>
 
 "search and replace
-"nmap <leader>rr <Plug>(coc-rename)
 noremap <leader>fiw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 noremap <leader>fk :CocSearch<Space>
 nnoremap <leader>r :%s///g<Left><Left><Left>
@@ -184,4 +169,11 @@ nnoremap <leader>rc :%s///gc<Left><Left><Left><Left>
 nnoremap <leader>gd :LspDefinition<CR>
 
 imap jj <Esc>
+
+function! DoingEasyMotion()
+    let g:is_doing_easymotion = 1
+    let cancelled = EasyMotion#WB(0,2)
+    let g:is_doing_easymotion = 0
+endfunction
+nmap f :call DoingEasyMotion()<CR>
 
