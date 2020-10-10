@@ -41,12 +41,14 @@ call plug#begin('~/.vim/plugged')
 
 "Basic
 Plug 'preservim/nerdtree'
+Plug 'unkiwii/vim-nerdtree-sync'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar' "not working...
 Plug 'vim-airline/vim-airline'
-Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'blueyed/vim-diminactive'
 Plug 'mattn/emmet-vim'
@@ -62,6 +64,10 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
+"lsp
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
 "auto-complete"
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
@@ -91,9 +97,14 @@ let g:gruvbox_invert_selection='0'
 let loaded_matchparen = 1
 let mapleader = " "
 
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
+let g:lsp_diagnostics_echo_cursor = 1
+
+"let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_guide_size = 1
+"let g:indent_guides_start_level = 2
+"let g:indentLine_faster = 1
+"let g:indentLine_setConceal = 0
+"let g:indentLine_char_list = ['dd
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -112,9 +123,13 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 
+let g:NERDTreeHighlightCursorline = 1
+let g:NERDTreeShowHidden=1
+let g:NERDTreeAutoDeleteBuffer=1
+let g:NERDTreeQuitOnOpen=0
 
-map <C-\> :NERDTreeToggle<CR>
-"map <C-/> :TagbarToggle<CR>
+" Open nerd tree at the current file or close nerd tree if pressed again.
+nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
 
 nnoremap <leader>h :wincmd h<CR>
 let g:gitgutter_map_keys = 0
@@ -132,9 +147,9 @@ vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
 nmap <leader>a :tab split<CR>:Ack ""<Left>
 
 nnoremap <Leader><CR> :so ~/.vim/vimrc<CR>
-nnoremap <C-[> :bnext<CR>
-nnoremap <C-]> :bprevious<CR>
-nnoremap <leader>w :bd<CR>
+nnoremap <C-[> :bprevious<CR>
+nnoremap <C-]> :bnext<CR>
+nnoremap <leader>q :bd<CR>
 
 "Git Fugitie
 "jnnoremap <leader>ga :Git add %:p<CR><CR>
@@ -162,10 +177,11 @@ noremap <Leader>s :update<CR>
 "search and replace
 "nmap <leader>rr <Plug>(coc-rename)
 noremap <leader>fiw :CocSearch <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>r :%s///g<Left><Left>
-nnoremap <leader>rc :%s///gc<Left><Left><Left>
+noremap <leader>fk :CocSearch<Space>
+nnoremap <leader>r :%s///g<Left><Left><Left>
+nnoremap <leader>rc :%s///gc<Left><Left><Left><Left>
 
-"nnoremap <silent> s* :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-"xnoremap <silent> s* "sy:let @/=@s<CR>cgn
+nnoremap <leader>gd :LspDefinition<CR>
 
 imap jj <Esc>
+
