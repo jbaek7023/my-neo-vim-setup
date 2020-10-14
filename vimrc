@@ -153,7 +153,7 @@ nmap <leader>a :tab split<CR>:Ack ""<Left>
 nnoremap <Leader><CR> :so ~/.vim/vimrc<CR>
 nnoremap <C-[> :bprevious<CR>
 nnoremap <C-]> :bnext<CR>
-nnoremap <leader>wc :q<CR>
+nnoremap <leader>q :bd<CR>
 
 "Git Fugitie
 nnoremap <leader>gs :Gstatus<CR>
@@ -178,17 +178,4 @@ nnoremap <leader>gd :LspDefinition<CR>
 
 imap jj <Esc>
 
-"function! DoingEasyMotion()
-  "let g:is_doing_easymotion = 1
-  "let cancelled = EasyMotion#WB(0,2)
-  "let g:is_doing_easymotion = 0
-"endfunction
-"nmap f :call DoingEasyMotion()<CR>
-
-nnoremap J :m .+1<CR>==
-nnoremap K :m .-2<CR>==
-inoremap J <Esc>:m .+1<CR>==gi
-inoremap K <Esc>:m .-2<CR>==gi
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
- 
+inoremap <esc>   <NOP>
