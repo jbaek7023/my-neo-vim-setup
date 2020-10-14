@@ -162,7 +162,7 @@ nnoremap <leader>gc :Git checkout<Space>
 nmap <leader>gh :diffget //2<CR>
 nmap <leader>gl :diffget //3<CR>
 nmap <leader>gp :Gpush<CR>
-nnoremap <leader>go :<c-u>:Gwrite<bar>Gcommit -m upd<bar>Gpush<cr>
+nnoremap <leader>go :<c-u>:Gwrite<bar>:Git add .<bar>:Gcommit -m upd<bar>Gpush<cr>
 
 "Save Action
 nmap <leader>wo :wq<CR>
@@ -179,9 +179,9 @@ nnoremap <leader>gd :LspDefinition<CR>
 imap jj <Esc>
 
 "function! DoingEasyMotion()
-    "let g:is_doing_easymotion = 1
-    "let cancelled = EasyMotion#WB(0,2)
-    "let g:is_doing_easymotion = 0
+  "let g:is_doing_easymotion = 1
+  "let cancelled = EasyMotion#WB(0,2)
+  "let g:is_doing_easymotion = 0
 "endfunction
 "nmap f :call DoingEasyMotion()<CR>
 
@@ -191,3 +191,4 @@ inoremap J <Esc>:m .+1<CR>==gi
 inoremap K <Esc>:m .-2<CR>==gi
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+ 
