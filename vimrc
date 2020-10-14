@@ -84,7 +84,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " automatically clear search highlights after you move your cursor
 Plug 'haya14busa/is.vim'
 
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -114,7 +114,14 @@ lua require'nvim_lsp'.tsserver.setup{ on_attach=require'completion'.on_attach }
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 
-let g:ale_fixers = ['eslint']
+let g:ale_fixers = {
+      \'javascript': ['eslint'],
+      \'json': ['prettier'],
+      \'typescript': ['eslint'],
+      \'typescriptreact': ['eslint'],
+      \'markdown': ['prettier'],
+      \'css': ['stylelint'],
+      \'scss': ['stylelint']}
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
@@ -171,10 +178,16 @@ nnoremap <leader>gd :LspDefinition<CR>
 
 imap jj <Esc>
 
-function! DoingEasyMotion()
-    let g:is_doing_easymotion = 1
-    let cancelled = EasyMotion#WB(0,2)
-    let g:is_doing_easymotion = 0
-endfunction
-nmap f :call DoingEasyMotion()<CR>
+"function! DoingEasyMotion()
+    "let g:is_doing_easymotion = 1
+    "let cancelled = EasyMotion#WB(0,2)
+    "let g:is_doing_easymotion = 0
+"endfunction
+"nmap f :call DoingEasyMotion()<CR>
 
+nnoremap J :m .+1<CR>==
+nnoremap K :m .-2<CR>==
+inoremap J <Esc>:m .+1<CR>==gi
+inoremap K <Esc>:m .-2<CR>==gi
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
