@@ -35,8 +35,6 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 
@@ -58,10 +56,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'mileszs/ack.vim'
 "Color Scheme"
-Plug 'gruvbox-community/gruvbox'
+"Plug 'gruvbox-community/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 Plug 'colepeters/spacemacs-theme.vim'
-Plug 'sainnhe/gruvbox-material'
+"Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
@@ -88,15 +87,17 @@ Plug 'haya14busa/is.vim'
 
 call plug#end()
 
-
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-endif
-let g:gruvbox_invert_selection='0'
+let g:dracula_colorterm = 0
+colorscheme dracula
+"set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=darkgrey
+"set background=dark
+"let g:gruvbox_contrast_dark = 'hard'
+"if exists('+termguicolors')
+    "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"endif
+"let g:gruvbox_invert_selection='0'
 
 let loaded_matchparen = 1
 let mapleader = " "
@@ -179,3 +180,11 @@ nnoremap <leader>gd :LspDefinition<CR>
 imap jj <Esc>
 
 inoremap <esc>   <NOP>
+inoremap {<CR> {<CR>}<Esc>ko<tab>
+inoremap [<CR> [<CR>]<Esc>ko<tab>
+inoremap (<CR> (<CR>)<Esc>ko<tab>
+
+let file_path = expand('%:p')
+noremap gt :w !ts-node <c-r>=expand("%:p")<CR><CR>
+
+xnoremap <leader>y "*y
