@@ -57,13 +57,13 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'mileszs/ack.vim'
 
 "Color Scheme"
-"Plug 'gruvbox-community/gruvbox'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'gruvbox-community/gruvbox'
+"Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 Plug 'colepeters/spacemacs-theme.vim'
 
-"Plug 'sainnhe/gruvbox-material'
-Plug 'phanviet/vim-monokai-pro'
+"Plug 'sainnhe/gruvbox-material' "somehow this is laggy
+"Plug 'phanviet/vim-monokai-pro'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
 
@@ -91,10 +91,24 @@ Plug 'haya14busa/is.vim'
 
 call plug#end()
 
-let g:dracula_colorterm = 0
-colorscheme dracula
-set colorcolumn=80
+"let g:dracula_colorterm = 0
+"colorscheme dracula
+
+"set colorcolumn=80
+
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+highlight Normal ctermbg=0
+
+
+set termguicolors
+"highlight Normal ctermbg=none
+"highlight NonText ctermbg=none
+"highlight Normal guibg=black guifg=white
 set background=dark
+"highlight Normal ctermfg=black ctermbg=black
+"highlight Normal ctermfg=grey ctermbg=darkblue
+
 
 let loaded_matchparen = 1
 let mapleader = " "
@@ -177,9 +191,6 @@ nnoremap <leader>gd :LspDefinition<CR>
 imap jj <Esc>
 
 inoremap <esc>   <NOP>
-inoremap {<CR> {<CR>}<Esc>ko<tab>
-inoremap [<CR> [<CR>]<Esc>ko<tab>
-inoremap (<CR> (<CR>)<Esc>ko<tab>
 
 let file_path = expand('%:p')
 noremap gt :w !ts-node <c-r>=expand("%:p")<CR><CR>
