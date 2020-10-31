@@ -55,15 +55,18 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'mileszs/ack.vim'
+
 "Color Scheme"
 "Plug 'gruvbox-community/gruvbox'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 Plug 'colepeters/spacemacs-theme.vim'
+
 "Plug 'sainnhe/gruvbox-material'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'flazz/vim-colorschemes'
 Plug 'chriskempson/base16-vim'
+
 "lsp
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
@@ -75,29 +78,23 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
 Plug 'nvim-lua/diagnostic-nvim'
+
 "auto-linting
 Plug 'dense-analysis/ale'
+
 "vim game
 Plug 'ThePrimeagen/vim-be-good'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " automatically clear search highlights after you move your cursor
 Plug 'haya14busa/is.vim'
-
-" Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
 let g:dracula_colorterm = 0
 colorscheme dracula
-"set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=darkgrey
-"set background=dark
-"let g:gruvbox_contrast_dark = 'hard'
-"if exists('+termguicolors')
-    "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"endif
-"let g:gruvbox_invert_selection='0'
+set colorcolumn=80
+set background=dark
 
 let loaded_matchparen = 1
 let mapleader = " "
