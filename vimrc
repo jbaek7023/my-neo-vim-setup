@@ -24,14 +24,11 @@ set completeopt=menuone,noinsert,noselect
 set cursorline
 set cursorcolumn
 set splitright
-
 " Give more space for displaying messages.
 set cmdheight=2
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=50
-
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
@@ -46,6 +43,8 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'majutsushi/tagbar' "not working...
 Plug 'vim-airline/vim-airline'
+Plug 'tmux-plugins/vim-tmux'
+
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
@@ -89,26 +88,21 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " automatically clear search highlights after you move your cursor
 Plug 'haya14busa/is.vim'
 
+" s[char][char] search
+Plug 'justinmk/vim-sneak'
+
+" js minimalist
+Plug 'pangloss/vim-javascript'
+Plug 'Wolfy87/vim-syntax-expand'
+
 call plug#end()
-
-"let g:dracula_colorterm = 0
-"colorscheme dracula
-
-"set colorcolumn=80
 
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
 highlight Normal ctermbg=0
 
-
 set termguicolors
-"highlight Normal ctermbg=none
-"highlight NonText ctermbg=none
-"highlight Normal guibg=black guifg=white
 set background=dark
-"highlight Normal ctermfg=black ctermbg=black
-"highlight Normal ctermfg=grey ctermbg=darkblue
-
 
 let loaded_matchparen = 1
 let mapleader = " "
@@ -143,6 +137,28 @@ let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeShowHidden=1
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeQuitOnOpen=0
+
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+autocmd FileType javascript inoremap <silent> <buffer> @ <C-r>=syntax_expand#expand("@", "this")<CR>
+autocmd FileType javascript inoremap <silent> <buffer> # <C-r>=syntax_expand#expand("#", ".prototype.")<CR>
+autocmd FileType javascript inoremap <silent> <buffer> < <C-r>=syntax_expand#expand_head("<", "return")<CR>
+" Keeps everything concealed at all times. Even when my cursor is on the word.
+set conceallevel=1
+set concealcursor=nvic
+" JavaScript thanks to pangloss/vim-javascript
+let g:javascript_conceal_function = "λ"
+let g:javascript_conceal_return = "<"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+set conceallevel=1
 
 " Open nerd tree at the current file or close nerd tree if pressed again.
 nnoremap <silent> <expr> <C-\> g:NERDTree.IsOpen() ? "\:NERDTreeClose<CR>" : bufexists(expand('%')) ? "\:NERDTreeFind<CR>" : "\:NERDTree<CR>"
