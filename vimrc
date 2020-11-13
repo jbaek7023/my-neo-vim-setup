@@ -93,9 +93,10 @@ Plug 'haya14busa/is.vim'
 " s[char][char] search
 Plug 'justinmk/vim-sneak'
 
-" js minimalist (doesn't support ts, tsx yet)
-"Plug 'pangloss/vim-javascript'
-"Plug 'Wolfy87/vim-syntax-expand'
+" js minimalist (doesn't support ts, tsx yet) looks like it support jsx and
+" js. Flow + js is the way to go.
+Plug 'pangloss/vim-javascript'
+Plug 'Wolfy87/vim-syntax-expand'
 
 " Visual expand by block
 Plug 'terryma/vim-expand-region'
@@ -214,17 +215,17 @@ let g:NERDTreeQuitOnOpen=0
 "" Keeps everything concealed at all times. Even when my cursor is on the word.
 "set conceallevel=1
 "set concealcursor=nvic
-"" JavaScript thanks to pangloss/vim-javascript
-"let g:javascript_conceal_function = 'λ'
-"let g:javascript_conceal_return = '<'
-"let g:javascript_conceal_null = 'ø'
-"let g:javascript_conceal_this = '@'
-"let g:javascript_conceal_undefined = '¿'
-"let g:javascript_conceal_NaN = 'ℕ'
-"let g:javascript_conceal_prototype = '¶'
-"let g:javascript_conceal_static = '•'
-"let g:javascript_conceal_super = 'Ω'
-"let g:javascript_conceal_arrow_function = '⇒'
+" JavaScript thanks to pangloss/vim-javascript
+let g:javascript_conceal_function = 'λ'
+let g:javascript_conceal_return = '<'
+let g:javascript_conceal_null = 'ø'
+let g:javascript_conceal_this = '@'
+let g:javascript_conceal_undefined = '¿'
+let g:javascript_conceal_NaN = 'ℕ'
+let g:javascript_conceal_prototype = '¶'
+let g:javascript_conceal_static = '•'
+let g:javascript_conceal_super = 'Ω'
+let g:javascript_conceal_arrow_function = '⇒'
 
 "let g:indentLine_noConcealCursor=""
 
